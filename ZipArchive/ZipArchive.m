@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 ZipArchive. All rights reserved.
 //
 
-#import "Main.h"
+#import "ZipArchive.h"
 #import "zip.h"
 #import "zlib.h"
 #import "zconf.h"
@@ -14,14 +14,14 @@
 
 #define CHUNK 16384
 
-@interface Main ()
+@interface ZipArchive ()
 
 + (NSDate *)dateWithMicrosoftDOSFormat:(UInt32)microsoftDOSDateTime;
 
 @end
 
 
-@implementation Main {
+@implementation ZipArchive {
     NSString *_path;
     NSString *_fileName;
     zipFile _zip;
@@ -449,7 +449,7 @@
 + (BOOL)createZipFileAtPath:(NSString *)path
            withFilesAtPaths:(NSArray *)paths {
     BOOL success = NO;
-    Main *zipArchive = [[Main alloc] initWithPath:path];
+    ZipArchive *zipArchive = [[ZipArchive alloc] initWithPath:path];
     
     if ([zipArchive open]) {
         for (NSString *filePath in paths) {
@@ -472,7 +472,7 @@
         keepParentDirectory:(BOOL)keepParentDirectory {
     BOOL success = NO;
     NSFileManager *fileManager = nil;
-    Main *zipArchive = [[Main alloc] initWithPath:path];
+    ZipArchive *zipArchive = [[ZipArchive alloc] initWithPath:path];
     
     if ([zipArchive open]) {
         // Use a local file manager (queue/thread compatibility)

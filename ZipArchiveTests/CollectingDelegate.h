@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Main.h"
+#import "ZipArchive.h"
 
 /**
  * Test delegate by collecting its calls
